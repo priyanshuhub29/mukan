@@ -7,7 +7,7 @@ function speak(text){
     text_speak.rate=1
     text_speak.pitch=1
     text_speak.volume=1;
-    text_speak.lang="hi-GB"
+    text_speak.lang="en-GB"
     window.speechSynthesis.speak(text_speak)
 }
 function wishMe(){
@@ -86,6 +86,10 @@ function takeCommand(message){
       let time = new Date().toLocaleString(undefined,{hour:"numeric",minute:"numeric"})
       speak(time)
     }
+    else if(message.includes("date")){
+        let date = new Date().toLocaleString(undefined,{day:"numeric",month:"short"})
+        speak(date)
+      }
     else{
         let finalText = "this is what i found on internet regarding " + message.replace("muskan","")
         speak(finalText)
